@@ -12,12 +12,6 @@ class CategoryModelViewSet(ModelViewSet):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
-# class ShopModelViewSet(ModelViewSet):
-#     permission_classes = [AllowAny]
-#     serializer_class = ShopSerializer
-#     queryset = Shop.objects.all()
-
-
 
 class ShopModelViewSet(ModelViewSet):
     def list(self, request):
