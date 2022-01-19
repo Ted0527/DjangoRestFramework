@@ -2,16 +2,16 @@ from django.db import models
 from django.db.models.fields import related
 from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
-# class Movie(models.Model):
-#     name = models.CharField(max_length=50)
-#     description = models.CharField(max_length=200)
-#     active = models.BooleanField(default=True)
+class Movie(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+    active = models.BooleanField(default=True)
     
-#     class Meta:
-#         db_table = 'movies'
+    class Meta:
+        db_table = 'movies'
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 class StreamPlatform(models.Model):
     name = models.CharField(max_length=50)
@@ -47,3 +47,23 @@ class Review(models.Model):
     
     def __str__(self):
         return str(self.rating)
+    
+    
+class User(models.Model):
+    name = models.CharField(max_length=50)
+    
+    
+class Point(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    point = models.BigIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    
+class PointInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    point_log = models.CharField(max_length=50)
+    status = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

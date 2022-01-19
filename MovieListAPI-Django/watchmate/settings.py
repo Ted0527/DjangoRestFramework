@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 from pathlib import Path
-from my_settings import SECRET_KEY
+from my_settings import SECRET_KEY, DATABASES
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,18 +76,7 @@ WSGI_APPLICATION = 'watchmate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER': 'root',
-        'PASSWORD': 'Wprkf0219!',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS': {'charset': 'utf8mb4'}
-    }
-}
-
+DATABASES = DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
@@ -113,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 

@@ -1,5 +1,32 @@
+from xml.parsers.expat import model
 from rest_framework import serializers
-from watchlist_app.models import StreamPlatform, Watchlist, Review
+from watchlist_app.models import StreamPlatform, Watchlist, Review, User, Point, PointInfo
+
+
+class UserSerializer(serializers.ModelSerializer):
+    point = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = User
+        fields = '__all__'
+        
+    def get_point(self, obj):
+        return Point.objects.filter(user_id=obj).values('point')
+        
+        
+class PointSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Point
+        fields = '__all__'
+        
+        
+class PointInfoSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = PointInfo
+        fields = '__all__'
+
 
 class ReviewSerializer(serializers.ModelSerializer):
     
