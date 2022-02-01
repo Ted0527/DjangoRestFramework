@@ -112,7 +112,7 @@ TIME_ZONE = 'Asia/Seoul'
 USE_I18N = True
 
 USE_L10N = True
-CORS_ORIGIN_ALLOW_ALL = True
+
 USE_TZ = False
 
 
