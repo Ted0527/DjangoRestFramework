@@ -1,6 +1,6 @@
 from django.db   import models
 
-from .models import TimeStampModel
+from core.models import TimeStampModel
 
 
 class Menu(TimeStampModel):

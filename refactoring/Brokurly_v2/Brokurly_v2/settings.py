@@ -38,15 +38,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'drf_yasg',
-    'corsheaders',
-    # 'django_apscheduler',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
-    'django_extensions',
+    'django.contrib.sites',
     'django.contrib.gis',
     'django_crontab',
+    'django_extensions',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'rest_framework',
+    # 'rest_framework.auth_token',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'drf_yasg',
+    'corsheaders',
+    'cart',
+    'orders',
+    'product',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -92,23 +101,6 @@ DATABASES = DATABASES
 
 APPEND_SLASH=False
 
-# AUTH_USER_MODEL = 'accounts.AccountGuest'
-
-# AUTH_PASSWORD_VALIDATORS = [
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-#     },
-# ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -136,23 +128,60 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 ## DRF 전용 세팅(필요시에만 주석 해제해서 하나씩 사용)
-# REST_FRAMEWORK = {
+REST_FRAMEWORK = {
 #     'DEFAULT_FILTER_BACKENDS': [
 #         'django_filters.rest_framework.DjangoFilterBackend'
 #     ],
-#     'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.IsAuthenticated',
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
 #         # 'rest_framework.permissions.AllowAny',
-#     ),
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
 #         # 'rest_framework.authentication.SessionAuthentication',
 #         # 'rest_framework.authentication.BasicAuthentication',
 #         # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-#     ),
+    ),
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 #     'PAGE_SIZE': 10,
-# }
+}
+
+
+## 회원가입, 로그인, 소셜로그인 세팅
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    # 'accounts.utils.TestAuthentication',
+)
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+REST_USE_JWT = True
+
+
+AUTH_USER_MODEL = 'users.CustomAccounts'
+
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
+
 
 
 ## simpleJwt 세팅

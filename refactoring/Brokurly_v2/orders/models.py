@@ -1,6 +1,8 @@
 from django.db import models
 
-from .models import Product, User, TimeStampModel
+from product.models import Product
+from core.models import TimeStampModel
+from users.models import CustomAccounts
 
 
 class OrderStatus(models.Model):
@@ -12,7 +14,7 @@ class OrderStatus(models.Model):
 
 class Order(TimeStampModel):
     order_number = models.CharField(max_length=150)
-    users        = models.ForeignKey(User, on_delete=models.CASCADE)
+    users        = models.ForeignKey(CustomAccounts, on_delete=models.CASCADE)
     order_status = models.ForeignKey('OrderStatus', on_delete=models.CASCADE)
 
     def __str__(self):
