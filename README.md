@@ -1,6 +1,6 @@
 ## Practice Note for DjangoRestFramework
 
-## 각 레포별 설명(난이도 순)
+## 각 폴더별 설명
 
 ### school
 - 가장 처음 Django 에서 DRF로 연습해본 코드
