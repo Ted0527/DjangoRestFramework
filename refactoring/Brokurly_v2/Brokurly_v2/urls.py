@@ -20,12 +20,20 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 from django.urls import path, include
+from allauth.account.views import confirm_email
+from django.conf.urls import url
+
 
 urlpatterns = [
     path('admin', admin.site.urls),
     path('token', TokenObtainPairView.as_view(), name = 'token_obtain_pair'),
     path('token/refresh', TokenRefreshView.as_view(), name = 'token_refresh'),
     path('token/verify', TokenVerifyView.as_view(), name = 'token_verify'),
+    url(r'^rest-auth', include('dj_rest_auth.urls')),
+    url(r'^rest-auth/registration', include('dj_rest_auth.registration.urls')),
+    url(r'^users', include('allauth.urls')),
+    url(r'^users', include('users.urls')),
+    #url(r'^accounts-rest/registration/account-confirm-email/(?P<key>.+)/$', confirm_email, name='account_confirm_email'),
     # path('users', include('dj_rest_auth.urls')),
     # path('users', include('dj_rest_auth.registration.urls')),
     # path('users', include('allauth.urls')),
