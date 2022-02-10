@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     # 'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
     'corsheaders',
+    ## my_apps ##
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -161,3 +163,11 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+    'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+}
