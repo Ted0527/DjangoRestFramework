@@ -164,6 +164,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_USE_JWT = True
 
+SITE_ID = 1
 
 AUTH_USER_MODEL = 'users.CustomAccounts'
 
