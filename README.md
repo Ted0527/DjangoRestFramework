@@ -20,7 +20,11 @@
 - Shop 검색시 shop 을 방문한 customer_name, customer_total 결과값 출력
 - Customer 검색시 방문한 visited_shop 결과값 출력
 
-### MovieListAPI-Django(Udemy 강의 코드), IMDB-Clone-DRF(Udemy 강의 풀 코드), snippet(DRF 공식문서 예제)
+### MovieListAPI-Django(Udemy 강의 연습 코드)
+- DRF 예제용 코드
+### IMDB-Clone-DRF(Udemy 강의 풀 코드)
+- DRF 예제용 코드
+### snippet(DRF 공식문서 예제)
 - DRF 예제용 코드
 
 ### Brokurly_v2
