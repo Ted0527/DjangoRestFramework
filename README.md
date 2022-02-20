@@ -2,8 +2,14 @@
 
 ## 각 폴더별 설명
 
+## assignments
+- 기업 과제 모음
+
+## refactoring
+- 각 프로젝트 리팩토링 모음
+
 ## school
-- 가장 처음 Django 에서 DRF로 연습해본 코드
+- 가장 처음 Django 에서 DRF로의 리팩토링을 연습해본 코드
 - Teacher(name), Student(name, FK=Teacher), Score(ko, en, math, FK=Student) 로 Model 구성
 - Django 로 CRUD 작성 후 DRF로 변환
 ##### 세부 과제
@@ -21,11 +27,10 @@
 - Customer 검색시 방문한 visited_shop 결과값 출력
 
 ## MovieListAPI-Django(Udemy 강의 연습 코드)
-- DRF 예제용 코드
+- DRF 예제 연습용 코드
 ## IMDB-Clone-DRF(Udemy 강의 풀 코드)
-- DRF 예제용 코드
+- DRF 예제 연습용 코드
 ## snippet(DRF 공식문서 예제)
-- DRF 예제용 코드
+- DRF 예제 연습용 코드
 
-## Brokurly_v2
-- 1차 프로젝트 리팩토링
+
