@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
@@ -286,3 +287,7 @@ class WatchDetailAV(APIView):
 #         movie = Movie.objects.get(pk=pk)
 #         movie.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class Hello(generics.ListAPIView):
+    def list(self, request, *args, **kwargs):
+        return JsonResponse({"Hello"})
